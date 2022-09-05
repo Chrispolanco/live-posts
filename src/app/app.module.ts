@@ -24,3 +24,5 @@ import { AuthComponent } from './auth/auth.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// fd
