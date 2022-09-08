@@ -9,16 +9,23 @@ import { Component, OnInit } from '@angular/core';
 export class PostListComponent implements OnInit {
   listOfPosts: Post[] = [
     new Post(
-      'Nature',
-      'Nature is a British weekly scientific journal founded and based in London, England. As a multidisciplinary publication, Nature features peer-reviewed research from a variety of academic disciplines, mainly in science and technology',
+      'Catherdal',
+      'To be awestruck is a common occurrance',
       '../../assets/midJourney/38.png',
       'test@test.com',
       new Date()
     ),
     new Post(
-      'Nature',
-      'Araku Valley is a hill station and valley region in the southeastern Indian state of Andhra Pradesh. Its surrounded by the thick forests of the Eastern Ghats mountain range. The Tribal Museum is dedicated to the area\'s numerous indigenous tribes, known for their traditional Dhimsa dance, and showcases traditional handicrafts.',
+      'Festival',
+      'The village gathers but once every 5 years for the festival in where worries are left for the following day',
       '../../assets/midJourney/37.png',
+      'test@test.com',
+      new Date()
+    ),
+    new Post(
+      'Zelda',
+      'The return home after a long journey',
+      '../../assets/midJourney/36.png',
       'test@test.com',
       new Date()
     ),
