@@ -1,3 +1,4 @@
+import { PostService } from './../post.service';
 import { Post } from '../post.model';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class PostListComponent implements OnInit {
   listOfPosts: Post[] = [];
 
-  constructor() {}
+  constructor(private postService: PostService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.listOfPosts = this.postService.getPosts(); 
+  }
 }
