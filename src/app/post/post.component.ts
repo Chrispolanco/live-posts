@@ -1,3 +1,4 @@
+import { PostService } from './../post.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Post } from '../post.model';
 
@@ -8,10 +9,14 @@ import { Post } from '../post.model';
 })
 export class PostComponent implements OnInit {
   @Input() post?: Post; 
-  constructor() { }
+  constructor(private postService: PostService) { }
 
   ngOnInit(): void {
     console.log(this.post); 
+  }
+
+  onDelete(){
+    console.log("Here"); 
   }
 
 }
