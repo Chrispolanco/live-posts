@@ -11,6 +11,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path:'', 
+    redirectTo: '/post-list',
+    pathMatch: 'full'
+  },
+  {
     path: 'post-list',
     component: PostListComponent,
   },
