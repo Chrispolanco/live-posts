@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-post-edit',
@@ -13,13 +13,13 @@ export class PostEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      title: new FormControl(null),
-      description: new FormControl(null),
-      imagePath: new FormControl(null),
+      title: new FormControl(null, [Validators.required]),
+      description: new FormControl(null, [Validators.required]),
+      imagePath: new FormControl(null, [Validators.required]),
     });
   }
 
-  onSubmit(){
-    console.log("Working")
+  onSubmit() {
+    console.log(this.form);
   }
 }
