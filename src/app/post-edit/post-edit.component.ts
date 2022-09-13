@@ -2,7 +2,7 @@ import { PostService } from './../post.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Post } from '../post.model';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-post-edit',
@@ -12,9 +12,19 @@ import { Router } from '@angular/router';
 export class PostEditComponent implements OnInit {
   form!: FormGroup;
 
-  constructor(private postService: PostService, private router: Router) {}
+  constructor(
+    private postService: PostService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      if(params['index']){
+        console.log(params['index']); 
+      }
+    }); 
+
     this.form = new FormGroup({
       title: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required]),
@@ -37,6 +47,6 @@ export class PostEditComponent implements OnInit {
 
     this.postService.addPost(post);
 
-    this.router.navigate(["/post-list"])
+    this.router.navigate(['/post-list']);
   }
 }
