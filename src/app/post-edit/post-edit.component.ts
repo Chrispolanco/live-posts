@@ -11,6 +11,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class PostEditComponent implements OnInit {
   form!: FormGroup;
+  index: number = 0; 
+  editMode = false; 
 
   constructor(
     private postService: PostService,
@@ -19,16 +21,27 @@ export class PostEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    let title = ''; 
+    let description = ''; 
+    let imagePath = ''; 
+
     this.route.params.subscribe((params: Params) => {
       if(params['index']){
-        console.log(params['index']); 
+        this.index = params['index']; 
+        const post = this.postService.getPost(this.index); 
+
+        title = post.title; 
+        description = post.description; 
+        imagePath = post.imagePath; 
+
+        this.editMode = true; 
       }
     }); 
 
     this.form = new FormGroup({
-      title: new FormControl(null, [Validators.required]),
-      description: new FormControl(null, [Validators.required]),
-      imagePath: new FormControl(null, [Validators.required]),
+      title: new FormControl(title, [Validators.required]),
+      description: new FormControl(description, [Validators.required]),
+      imagePath: new FormControl(imagePath, [Validators.required]),
     });
   }
 
