@@ -55,10 +55,15 @@ export class PostEditComponent implements OnInit {
       description,
       imagePath,
       'Chris@mycondingrubberduck.com',
-      new Date()
+      new Date(),
+      5
     );
-
-    this.postService.addPost(post);
+    if(this.editMode){
+      this.postService.updatePost(this.index, post); 
+    }else{
+      this.postService.addPost(post);
+    }
+ 
 
     this.router.navigate(['/post-list']);
   }
