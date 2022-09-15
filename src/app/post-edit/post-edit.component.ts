@@ -56,7 +56,7 @@ export class PostEditComponent implements OnInit {
       imagePath,
       'Chris@mycondingrubberduck.com',
       new Date(),
-      5
+      0
     );
     if(this.editMode){
       this.postService.updatePost(this.index, post); 

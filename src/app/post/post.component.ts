@@ -28,4 +28,8 @@ export class PostComponent implements OnInit {
   onEdit() {
     this.router.navigate(['/post-edit', this.index]);
   }
+
+  likePost(){
+    this.postService.likePost(this.index); 
+  }
 }
