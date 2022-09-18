@@ -29,8 +29,7 @@ export class BackEndService {
       )
       .pipe(
         tap((listOfPosts: Post[]) => {
-          console.log(listOfPosts);
-          
+            this.postService.setPosts(listOfPosts);
         })
       )
       .subscribe();
